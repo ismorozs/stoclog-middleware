@@ -1,0 +1,27 @@
+{
+  "name": "stoclog-middleware",
+  "version": "0.1.0",
+  "description": "Developer tool allowing for sending server console.logs to the client for easier reading",
+  "main": "stoclog-middleware.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/ismorozs/stoclog.git",
+  "keywords": [
+    "development",
+    "developer",
+    "tool",
+    "server",
+    "client",
+    "console",
+    "logging",
+    "debugging"
+  ],
+  "dependencies": {
+    "json-decycle": "1.0.0"
+  },
+  "author": "Igor Morozov",
+  "license": "MIT",
+  "bugs": "https://github.com/ismorozs/stoclog/issues",
+  "homepage": "https://github.com/ismorozs/stoclog"
+}
