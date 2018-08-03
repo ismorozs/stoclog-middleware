@@ -23,17 +23,17 @@ module.exports = function (server, opts) {
     }
   }
 
-  if (!opts.logFuncName) {
+  if (!opts.saveLogFuncName) {
     var oldConsoleLog = console.log;
 
     console.log = function () {
       var args = Array.prototype.slice.call(arguments);
-      oldConsoleLog.apply(this, args);
+      oldConsoleLog.apply(console, args);
       toClient.apply(this, args);
     }
 
   } else {
-    console[opts.logFuncName] = toClient;
+    console[opts.saveLogFuncName] = toClient;
   }
 
   var existingListeners = server.listeners('request').slice(0);
@@ -42,14 +42,14 @@ module.exports = function (server, opts) {
   server.on('request', function (req, res) {
 
     if (req.headers[HEADER_NAME]) {
-      var operationData = req.headers[HEADER_NAME].split(',');
+      var operationDetails = req.headers[HEADER_NAME].split(',');
 
       var returnValue;
 
-      switch (operationData[0]) {
+      switch (operationDetails[0]) {
 
         case 'get':
-          var logsToReturn = logsStorage.slice(-operationData[1]);
+          var logsToReturn = logsStorage.slice(-operationDetails[1]);
           returnValue = '[' + logsToReturn.join(",") + ']';
           res.writeHead(200, 'logs fetched');
           break;
@@ -60,7 +60,7 @@ module.exports = function (server, opts) {
           break;
 
         default:
-          res.writeHead(400, 'unable to process request: ' + operationData[0]);
+          res.writeHead(400, 'unable to process request: ' + operationDetails[0]);
       }
 
       return res.end(returnValue);
