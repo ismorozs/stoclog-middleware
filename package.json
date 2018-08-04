@@ -1,7 +1,7 @@
 {
   "name": "stoclog-middleware",
-  "version": "0.1.1",
-  "description": "Developer tool allowing for sending server console.logs to the client for easier reading",
+  "version": "0.1.2",
+  "description": "Developer tool allowing for sending server console.logs to the client for easier reading (server side)",
   "main": "stoclog-middleware.js",
   "keywords": [
     "development",

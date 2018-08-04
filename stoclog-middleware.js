@@ -1,6 +1,6 @@
 var decycle = require('json-decycle').decycle;
 
-var HEADER_NAME = 'x-operation-with-serverside-logs';
+var SPECIAL_HEADER_NAME = 'x-operation-with-serverside-logs';
 
 module.exports = function (server, opts) {
 
@@ -41,8 +41,8 @@ module.exports = function (server, opts) {
 
   server.on('request', function (req, res) {
 
-    if (req.headers[HEADER_NAME]) {
-      var operationDetails = req.headers[HEADER_NAME].split(',');
+    if (req.headers[SPECIAL_HEADER_NAME]) {
+      var operationDetails = req.headers[SPECIAL_HEADER_NAME].split(',');
 
       var returnValue;
 
