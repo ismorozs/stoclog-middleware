@@ -15,13 +15,12 @@ exports.makeRequest = function (args, cb) {
   (res) => {
     let body = '';
     res.on('data', (buffer) => body += buffer.toString());
-    res.on('end', () => {
-      // console.log(body)
+    res.on('end', () =>
       cb(
         JSON.parse(body),
         res.statusCode
       )
-    });
+    );
   });
 }
 
