@@ -16,9 +16,15 @@
   "dependencies": {
     "json-decycle": "1.0.0"
   },
+  "scripts": {
+    "test": "node ./test/main.js"
+  },
   "author": "Igor Morozov",
   "license": "MIT",
   "repository": "https://github.com/ismorozs/stoclog-middleware.git",
   "bugs": "https://github.com/ismorozs/stoclog-middleware/issues",
-  "homepage": "https://github.com/ismorozs/stoclog-middleware"
+  "homepage": "https://github.com/ismorozs/stoclog-middleware",
+  "devDependencies": {
+    "mocha": "5.2.0"
+  }
 }

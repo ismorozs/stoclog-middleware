@@ -50,12 +50,12 @@ module.exports = function (server, opts) {
   });
 
   function middlewareListener (req, res) {
-    var operationDetails = req.headers[SPECIAL_HEADER_NAME].split(',');
-    var operation = operationDetails[0].trim();
-    var type = operationDetails[1].trim();
-    var logsNumber = operationDetails[2].trim();
+    var operationDetails = req.headers[SPECIAL_HEADER_NAME].split(',').map((detail) => detail.trim());
+    var operation = operationDetails[0];
+    var type = operationDetails[1];
+    var logsNumber = operationDetails[2];
 
-    var returnValue = '';
+    var returnValue = "{}";
 
     try {
       switch (operation) {
